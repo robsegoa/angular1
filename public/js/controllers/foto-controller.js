@@ -36,6 +36,9 @@ controller('FotoController',function($scope, /*$http,*/cadastroDeFotos, recursoF
 			.then(function(dados){
 				$scope.mensagem = dados.mensagem;
 				if(dados.inclusao) $scope.foto = {};
+				//$scope.focado = true;
+					//meu broadcast acabou indo para o meusServicos
+				//$scope.$broadcast('fotoCadastrada');
 			})
 			.catch(function(dados){
 				$scope.mensagem = dados.mensagem;

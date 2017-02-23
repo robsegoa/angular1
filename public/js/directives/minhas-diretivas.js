@@ -44,4 +44,36 @@ angular.module('minhasDiretivas', [])
         ddo.template = ' <button ng-click="acao(foto)" class="btn btn-danger btn-block">{{nome}}</button>'
         
         return ddo;
-    });
+    })
+    .directive('meuFocus', function(){
+//manipulação de DOM
+        var ddo = {};
+
+        ddo.restrict = "A";
+/*
+        //scope só se eu estivesse usando o watch
+        ddo.scope = {
+            focado: '='
+        };
+*/
+
+        ddo.link = function(scope,element){
+            scope.$on('fotoCadastrada', function(){
+                element[0].focus();
+            });
+
+          /*  
+                //watch acaba sendo mt pesado
+            scope.$watch('function', function(){
+                if(scope.focado){
+                    //elemento JQlite
+                    element[0].focus();
+                    scope.focado = false;
+                }
+            });*/
+        }
+
+        return ddo;
+
+    })
+    ;
